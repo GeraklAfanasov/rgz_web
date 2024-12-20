@@ -1,0 +1,388 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.top-bar {
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.top-bar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.top-bar nav ul li {
+    margin-left: 20px;
+}
+
+.top-bar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.top-bar nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.chat-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+/* Левая колонка: Список пользователей */
+.chat-sidebar {
+    width: 25%;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    overflow-y: auto;
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+}
+
+.chat-sidebar h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.chat-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chat-sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.chat-sidebar ul li:hover {
+    background-color: #f1f1f1;
+}
+
+.chat-sidebar ul li .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-sidebar ul li .profile-link {
+    margin-left: auto;
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.chat-sidebar ul li .profile-link:hover {
+    text-decoration: underline;
+}
+
+/* Правая колонка: Чат с пользователем */
+.chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin-left: 25%;
+    height: 100%;
+    padding-left: 20px;
+}
+
+.chat-header {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.messages-container {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.message {
+    max-width: 70%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    word-wrap: break-word;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 40px;
+}
+
+.message.user {
+    background-color: #e1e1e1;
+    align-self: flex-start;
+}
+
+.message.me {
+    background-color: #d1f7c4;
+    align-self: flex-end;
+}
+
+.message-content {
+    flex: 1;
+    word-wrap: break-word;
+}
+
+.message-time {
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* Панель ввода сообщений */
+.message-input-container {
+    position: fixed;
+    bottom: 0;
+    left: 25%;
+    right: 0;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.message-form {
+    display: flex;
+    width: 100%;
+}
+
+.message-form textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+.message-form button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.message-form button:hover {
+    background-color: #45a049;
+}
+
+.attachment-label {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.attachment-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.attachment-input {
+    display: none;
+}
+
+/* Welcome Page */
+.welcome-container {
+    display: flex;
+    height: 100vh;
+}
+
+.welcome-left {
+    flex: 1;
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.welcome-left img {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.welcome-left h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.welcome-left p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.welcome-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.welcome-right h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.welcome-right p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #45a049;
+}
+
+/* Профиль */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.profile-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.profile-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.profile-card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Стили для шестеренки (иконки настроек) */
+.profile-icon {
+    width: 16px; /* Уменьшаем ширину */
+    height: 16px; /* Уменьшаем высоту */
+    vertical-align: middle; /* Выравниваем по центру */
+    margin-left: 5px; /* Добавляем небольшой отступ слева */
+}
+
+/* Админ-панель */
+.admin-panel {
+    padding: 30px;
+}
+
+.admin-panel h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.admin-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-panel li {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-panel button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin-panel button:hover {
+    background-color: #d32f2f;
+}

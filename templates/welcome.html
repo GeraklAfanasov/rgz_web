@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<div class="welcome-container">
+    <div class="welcome-left">
+        <img src="/static/images/welcome-image.png" alt="Welcome Image" class="welcome-image">
+        <h1>Olympus</h1>
+        <p>Афанасов Геракл Студент ФБИ-24</p>
+    </div>
+    <div class="welcome-right">
+        <h2>Welcome to Messenger!</h2>
+        <p>Please <a href="/login">log in</a> or <a href="/register">register</a> to continue.</p>
+        <form id="login-form" class="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const loginForm = document.querySelector('#login-form');
+
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const username = document.querySelector('#username').value;
+            const password = document.querySelector('#password').value;
+
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            if (response.ok) {
+                window.location.href = '/';
+            } else {
+                const errorData = await response.json();
+                alert(errorData.error || 'Login failed');
+            }
+        });
+    });
+</script>
+{% endblock %}

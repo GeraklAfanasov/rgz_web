@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<section id="login">
+    <h2>Login</h2>
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/register">Register here</a>.</p>
+</section>
+<script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                username: e.target.username.value,
+                password: e.target.password.value,
+            }),
+        });
+        const data = await response.json();
+        if (response.ok) {
+            window.location = '/';
+        } else {
+            alert(data.error || 'Login failed');
+        }
+    });
+</script>
+{% endblock %}

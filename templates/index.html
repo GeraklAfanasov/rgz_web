@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympus</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <!-- Зеленая плашка сверху -->
+    <header class="top-bar">
+        <h1>Olympus</h1>
+        <p class="user-name" id="chat-username">Select a chat</p>
+        <button id="logout-btn">Выйти</button>
+        <a href="/profile" class="settings-btn">Настройки</a>
+    </header>
+
+    <main>
+        <div class="chat-container">
+            <!-- Левая колонка: Список пользователей -->
+            <section id="chats" class="chat-sidebar">
+                <h3>Chats</h3>
+                <ul id="chat-list">
+                    <!-- Список пользователей будет загружен динамически -->
+                </ul>
+            </section>
+
+            <!-- Правая колонка: Чат с пользователем -->
+            <section id="chat-messages" class="chat-main">
+                <div id="messages-container" class="messages-container">
+                    <!-- Сообщения будут загружены динамически -->
+                </div>
+                <div id="message-input-container" class="message-input-container">
+                    <form id="message-form" class="message-form" enctype="multipart/form-data">
+                        <textarea id="content" name="content" placeholder="Type a message..." required></textarea>
+                        <input type="file" id="attachment" name="attachment">
+                        <button type="submit">Отпарвить</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Подключение JavaScript -->
+    <script src="/static/scripts.js"></script>
+</body>
+</html>

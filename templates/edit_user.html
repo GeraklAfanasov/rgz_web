@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block content %}
+<h2>Edit User Profile</h2>
+<form method="POST" enctype="multipart/form-data">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" value="{{ user.username }}" required>
+
+    <label for="phone_number">Phone Number:</label>
+    <input type="text" id="phone_number" name="phone_number" value="{{ user.phone_number }}">
+
+    <label for="status">Status:</label>
+    <input type="text" id="status" name="status" value="{{ user.status }}">
+
+    <label for="profile_pic">Profile Picture:</label>
+    <input type="file" id="profile_pic" name="profile_pic">
+
+    <button type="submit">Save Changes</button>
+</form>
+{% endblock %}
